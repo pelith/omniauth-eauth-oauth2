@@ -5,9 +5,9 @@ require "omniauth-ethauth/version"
 Gem::Specification.new do |s|
   s.name        = "omniauth-ethauth"
   s.version     = OmniAuth::Ethauth::VERSION
-  s.authors     = ["Arun Agrawal"]
-  s.email       = ["arunagw@gmail.com"]
-  s.homepage    = "https://github.com/arunagw/omniauth-ethauth"
+  s.authors     = ["Pei-Chen Tsou"]
+  s.email       = ["pei@pelith.com"]
+  s.homepage    = "https://github.com/SiriusTsou/omniauth-ethauth"
   s.description = %q{OmniAuth strategy for Ethauth}
   s.summary     = s.description
   s.license     = "MIT"
