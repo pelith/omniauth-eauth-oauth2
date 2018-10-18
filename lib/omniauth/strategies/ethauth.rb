@@ -3,11 +3,11 @@ require 'json'
 
 module OmniAuth
   module Strategies
-    class Twitter < OmniAuth::Strategies::OAuth
-      option :name, 'twitter'
+    class Ethauth < OmniAuth::Strategies::OAuth
+      option :name, 'ethauth'
 
       option :client_options, {:authorize_path => '/oauth/authenticate',
-                               :site => 'https://api.twitter.com',
+                               :site => 'https://api.ethauth.com',
                                :proxy => ENV['http_proxy'] ? URI(ENV['http_proxy']) : nil}
 
       uid { access_token.params[:user_id] }
@@ -22,7 +22,7 @@ module OmniAuth
           :description => raw_info['description'],
           :urls => {
             'Website' => raw_info['url'],
-            'Twitter' => "https://twitter.com/#{raw_info['screen_name']}",
+            'Ethauth' => "https://ethauth.com/#{raw_info['screen_name']}",
           }
         }
       end

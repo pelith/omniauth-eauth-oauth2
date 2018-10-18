@@ -1,2 +1,2 @@
-require "omniauth-twitter/version"
-require 'omniauth/strategies/twitter'
+require "omniauth-ethauth/version"
+require 'omniauth/strategies/ethauth'

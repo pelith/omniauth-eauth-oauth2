@@ -1,14 +1,14 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "omniauth-twitter/version"
+require "omniauth-ethauth/version"
 
 Gem::Specification.new do |s|
-  s.name        = "omniauth-twitter"
-  s.version     = OmniAuth::Twitter::VERSION
+  s.name        = "omniauth-ethauth"
+  s.version     = OmniAuth::Ethauth::VERSION
   s.authors     = ["Arun Agrawal"]
   s.email       = ["arunagw@gmail.com"]
-  s.homepage    = "https://github.com/arunagw/omniauth-twitter"
-  s.description = %q{OmniAuth strategy for Twitter}
+  s.homepage    = "https://github.com/arunagw/omniauth-ethauth"
+  s.description = %q{OmniAuth strategy for Ethauth}
   s.summary     = s.description
   s.license     = "MIT"
 
