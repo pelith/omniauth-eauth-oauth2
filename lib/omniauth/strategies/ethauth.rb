@@ -35,4 +35,4 @@ module OmniAuth
   end
 end
 
-OmniAuth.config.add_camelization 'ethauth', 'Ethauth'
+OmniAuth.config.add_camelization 'gitlab', 'Gitlab'
