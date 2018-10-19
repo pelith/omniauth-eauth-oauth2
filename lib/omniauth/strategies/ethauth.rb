@@ -7,7 +7,7 @@ module OmniAuth
       option :name, 'ethauth'
 
       option :client_options, {:authorize_path => '/oauth/authenticate',
-                               :site => 'https://api.ethauth.com',
+                               :site => 'https://demo.pelith.com/api/',
                                :proxy => ENV['http_proxy'] ? URI(ENV['http_proxy']) : nil}
 
       uid { access_token.params[:user_id] }

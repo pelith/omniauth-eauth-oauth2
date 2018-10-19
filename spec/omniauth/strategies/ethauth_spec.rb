@@ -18,7 +18,7 @@ describe OmniAuth::Strategies::Ethauth do
     end
 
     it 'should have correct site' do
-      expect(subject.options.client_options.site).to eq('https://api.ethauth.com')
+      expect(subject.options.client_options.site).to eq('https://api.demo.pelith.com')
     end
 
     it 'should have correct authorize url' do
@@ -53,7 +53,7 @@ describe OmniAuth::Strategies::Ethauth do
 
     it 'should returns the urls' do
       expect(subject.info[:urls]['Website']).to eq(raw_info_hash['url'])
-      expect(subject.info[:urls]['Ethauth']).to eq("https://ethauth.com/#{raw_info_hash['screen_name']}")
+      expect(subject.info[:urls]['Ethauth']).to eq("https://demo.pelith.com/#{raw_info_hash['screen_name']}")
     end
   end
 
