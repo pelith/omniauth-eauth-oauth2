@@ -7,7 +7,7 @@ module OmniAuth
       option :name, 'ethauth'
 
       option :client_options, {:authorize_path => '/oauth/authenticate',
-                               :site => 'https://demo.pelith.com/api/',
+                               :site => 'https://api.twitter.com',
                                :proxy => ENV['http_proxy'] ? URI(ENV['http_proxy']) : nil}
 
       uid { access_token.params[:user_id] }
@@ -22,7 +22,7 @@ module OmniAuth
           :description => raw_info['description'],
           :urls => {
             'Website' => raw_info['url'],
-            'Ethauth' => "https://ethauth.com/#{raw_info['screen_name']}",
+            'Ethauth' => "https://twitter.com/#{raw_info['screen_name']}",
           }
         }
       end
