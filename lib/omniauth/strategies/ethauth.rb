@@ -3,7 +3,8 @@ require 'omniauth-oauth2'
 module OmniAuth
   module Strategies
     class Ethauth < OmniAuth::Strategies::OAuth2
-      option :client_options, {:site => 'https://api.twitter.com'}
+      option :client_options, {
+        :site => 'https://demo.pelith.com/auth/'}
 
       def request_phase
         super
