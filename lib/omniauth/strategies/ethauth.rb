@@ -3,9 +3,11 @@ require 'omniauth-oauth2'
 module OmniAuth
   module Strategies
     class Ethauth < OmniAuth::Strategies::OAuth2
-      option :client_options, site: 'https://gitlab.com/api/v4'
+      option :client_options, {:site => 'https://api.twitter.com'}
 
-      option :redirect_url
+      def request_phase
+        super
+      end
 
       uid { raw_info['id'].to_s }
 
@@ -29,10 +31,10 @@ module OmniAuth
       private
 
       def callback_url
-        options.redirect_url || (full_host + script_name + callback_path)
+        full_host + script_name + callback_path
       end
     end
   end
 end
 
-OmniAuth.config.add_camelization 'gitlab', 'Gitlab'
+OmniAuth.config.add_camelization 'ethauth', 'Ethauth'
