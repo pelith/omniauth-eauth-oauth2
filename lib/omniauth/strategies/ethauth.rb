@@ -4,7 +4,9 @@ module OmniAuth
   module Strategies
     class Ethauth < OmniAuth::Strategies::OAuth2
       option :client_options, {
-        :site => 'https://demo.pelith.com/auth/'}
+        :site => 'https://demo.pelith.com/',
+        :authorize_url => '/auth/'
+      }
 
       def request_phase
         super
