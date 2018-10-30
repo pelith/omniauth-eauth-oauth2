@@ -5,21 +5,32 @@ module OmniAuth
     class Ethauth < OmniAuth::Strategies::OAuth2
       option :client_options, {
         :site => 'https://demo.pelith.com/',
-        :authorize_url => '/auth/'
+        :authorize_url => '/oauth/authorize',
+        :token_url => '/oauth/token'
       }
 
       def request_phase
         super
       end
 
+      def authorize_params
+        super.tap do |params|
+          %w[scope client_options].each do |v|
+            if request.params[v]
+              params[v.to_sym] = request.params[v]
+            end
+          end
+        end
+      end
+
       uid { raw_info['id'].to_s }
 
       info do
         {
+          nickname: raw_info['login'],
           name: raw_info['name'],
           username: raw_info['username'],
-          email: raw_info['email'],
-          image: raw_info['avatar_url']
+          email: raw_info['email']
         }
       end
 
@@ -28,7 +39,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('user').parsed
+        @raw_info ||= access_token.get('/oauth/user').parsed
       end
 
       private
