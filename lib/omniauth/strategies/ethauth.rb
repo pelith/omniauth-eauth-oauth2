@@ -4,7 +4,7 @@ module OmniAuth
   module Strategies
     class Ethauth < OmniAuth::Strategies::OAuth2
       option :client_options, {
-        :site => 'https://demo.pelith.com/',
+        :site => 'https://eth-auth.pelith.com/',
         :authorize_url => '/oauth/authorize',
         :token_url => '/oauth/token'
       }
