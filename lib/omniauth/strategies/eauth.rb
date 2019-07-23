@@ -2,9 +2,9 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class Ethauth < OmniAuth::Strategies::OAuth2
+    class Eauth < OmniAuth::Strategies::OAuth2
       option :client_options, {
-        :site => 'https://eth-auth.pelith.com/',
+        :site => 'https://eauth.pelith.com/',
         :authorize_url => '/oauth/authorize',
         :token_url => '/oauth/token'
       }
@@ -51,4 +51,4 @@ module OmniAuth
   end
 end
 
-OmniAuth.config.add_camelization 'ethauth', 'Ethauth'
+OmniAuth.config.add_camelization 'eauth', 'Eauth'

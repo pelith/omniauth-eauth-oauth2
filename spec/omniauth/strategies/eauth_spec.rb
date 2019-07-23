@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe OmniAuth::Strategies::Ethauth do
+describe OmniAuth::Strategies::Eauth do
   let(:request) { double('Request', :params => {}, :cookies => {}, :env => {}) }
 
   subject do
     args = ['appid', 'secret', @options || {}].compact
-    OmniAuth::Strategies::Ethauth.new(*args).tap do |strategy|
+    OmniAuth::Strategies::Eauth.new(*args).tap do |strategy|
       allow(strategy).to receive(:request) {
         request
       }
@@ -14,7 +14,7 @@ describe OmniAuth::Strategies::Ethauth do
 
   describe 'client options' do
     it 'should have correct name' do
-      expect(subject.options.name).to eq('ethauth')
+      expect(subject.options.name).to eq('eauth')
     end
 
     it 'should have correct site' do
@@ -53,7 +53,7 @@ describe OmniAuth::Strategies::Ethauth do
 
     it 'should returns the urls' do
       expect(subject.info[:urls]['Website']).to eq(raw_info_hash['url'])
-      expect(subject.info[:urls]['Ethauth']).to eq("https://demo.pelith.com/#{raw_info_hash['screen_name']}")
+      expect(subject.info[:urls]['Eauth']).to eq("https://demo.pelith.com/#{raw_info_hash['screen_name']}")
     end
   end
 
@@ -132,7 +132,7 @@ describe OmniAuth::Strategies::Ethauth do
 
     context 'with a specified callback_url in the params' do
       before do
-        params = { 'callback_url' => 'http://foo.dev/auth/ethauth/foobar' }
+        params = { 'callback_url' => 'http://foo.dev/auth/eauth/foobar' }
         allow(subject).to receive(:request) do
           double('Request', :params => params)
         end
@@ -143,11 +143,11 @@ describe OmniAuth::Strategies::Ethauth do
       end
 
       it 'should use the callback_url' do
-        expect(subject.callback_url).to eq 'http://foo.dev/auth/ethauth/foobar'
+        expect(subject.callback_url).to eq 'http://foo.dev/auth/eauth/foobar'
       end
 
       it 'should return the correct callback_path' do
-        expect(subject.callback_path).to eq '/auth/ethauth/foobar'
+        expect(subject.callback_path).to eq '/auth/eauth/foobar'
       end
     end
 
@@ -168,7 +168,7 @@ describe OmniAuth::Strategies::Ethauth do
       end
 
       it 'should return the default callback_path value' do
-        expect(subject.callback_path).to eq '/auth/ethauth/callback'
+        expect(subject.callback_path).to eq '/auth/eauth/callback'
       end
     end
 
