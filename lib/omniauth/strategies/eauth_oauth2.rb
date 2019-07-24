@@ -1,8 +1,10 @@
-require 'omniauth-oauth2'
+# frozen_string_literal: true
+
+require 'omniauth/strategies/oauth2'
 
 module OmniAuth
   module Strategies
-    class Eauth < OmniAuth::Strategies::OAuth2
+    class EauthOauth2 < OmniAuth::Strategies::OAuth2
       option :client_options, {
         :site => 'https://eauth.pelith.com/',
         :authorize_url => '/oauth/authorize',
@@ -51,4 +53,4 @@ module OmniAuth
   end
 end
 
-OmniAuth.config.add_camelization 'eauth', 'Eauth'
+OmniAuth.config.add_camelization 'eauthoauth2', 'EauthOauth2'

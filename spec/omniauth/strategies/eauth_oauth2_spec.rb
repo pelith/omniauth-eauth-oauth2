@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe OmniAuth::Strategies::Eauth do
+describe OmniAuth::Strategies::EauthOauth2 do
   let(:request) { double('Request', :params => {}, :cookies => {}, :env => {}) }
 
   subject do
     args = ['appid', 'secret', @options || {}].compact
-    OmniAuth::Strategies::Eauth.new(*args).tap do |strategy|
+    OmniAuth::Strategies::EauthOauth2.new(*args).tap do |strategy|
       allow(strategy).to receive(:request) {
         request
       }
@@ -13,16 +13,16 @@ describe OmniAuth::Strategies::Eauth do
   end
 
   describe 'client options' do
-    it 'should have correct name' do
-      expect(subject.options.name).to eq('eauth')
-    end
-
     it 'should have correct site' do
-      expect(subject.options.client_options.site).to eq('https://api.demo.pelith.com')
+      expect(subject.options.client_options.site).to eq('https://eauth.pelith.com/')
     end
 
     it 'should have correct authorize url' do
-      expect(subject.options.client_options.authorize_path).to eq('/oauth/authenticate')
+      expect(subject.options.client_options.authorize_url).to eq('/oauth/authorize')
+    end
+
+    it 'should have correct token_url' do
+      expect(subject.options.client_options.token_url).to eq('/oauth/token')
     end
   end
 

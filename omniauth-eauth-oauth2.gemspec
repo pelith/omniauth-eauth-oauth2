@@ -1,12 +1,12 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/omniauth-eauth/version', __FILE__)
+require File.expand_path('../lib/omniauth-eauth-oauth2/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Pei-Chen Tsou"]
   gem.email         = ["pei@pelith.com"]
   gem.description   = %q{Official OmniAuth strategy for Eauth.}
   gem.summary       = %q{Official OmniAuth strategy for Eauth.}
-  gem.homepage      = "https://github.com/pelith/omniauth-eauth"
+  gem.homepage      = "https://github.com/pelith/omniauth-eauth-oauth2"
   gem.license       = "MIT"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
