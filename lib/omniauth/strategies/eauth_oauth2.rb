@@ -29,10 +29,7 @@ module OmniAuth
 
       info do
         {
-          nickname: raw_info['login'],
-          name: raw_info['name'],
-          username: raw_info['username'],
-          email: raw_info['email']
+          address: raw_info['address']
         }
       end
 
