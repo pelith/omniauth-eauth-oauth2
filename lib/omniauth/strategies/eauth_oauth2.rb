@@ -29,7 +29,8 @@ module OmniAuth
 
       info do
         {
-          address: raw_info['address']
+          address: raw_info['address'],
+          ens: raw_info['ens']
         }
       end
 
